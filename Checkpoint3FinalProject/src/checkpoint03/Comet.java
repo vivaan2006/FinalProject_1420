@@ -17,11 +17,15 @@ public class Comet extends GameObject implements Targetable {
     @Override
     public void update(double timeElapsed) {
         pathPercentage += (1.00 / 6.0) * timeElapsed;
+        if (pathPercentage >= 1.0) {
+            state.adjustCityCount(-1);
+            this.hasExpired = true;
+        }
     }
 
     @Override
     public void draw(Graphics g) {
-        BufferedImage comet = control.getImage("asteroid.png");
+        BufferedImage comet = control.getImage("comet.png");
         Point loc = control.getPath().convertToCoordinates(pathPercentage);
         g.drawImage(comet, loc.x - comet.getWidth() / 2, loc.y - comet.getHeight() / 2, null);
     }

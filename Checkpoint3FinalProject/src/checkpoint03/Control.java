@@ -124,28 +124,32 @@ public class Control implements Runnable, ActionListener, MouseListener, MouseMo
     public void actionPerformed(ActionEvent e) {
         // Main update loop
 
-        state.startFrame();
+        if(state.getCityCount() != 0){
+            state.startFrame();
 
-        for (Animatable a : state.getCurrentObjects())
-            a.update(state.getElapsedTime());
+            for (Animatable a : state.getCurrentObjects())
+                a.update(state.getElapsedTime());
 
-        if (mousePressed)
-            for (int pos = state.getCurrentObjects().size() - 1;
-                 pos >= 0; pos--) {
-                Animatable a = state.getCurrentObjects().get(pos);
+            if (mousePressed)
+                for (int pos = state.getCurrentObjects().size() - 1;
+                     pos >= 0; pos--) {
+                    Animatable a = state.getCurrentObjects().get(pos);
 
-                if (a instanceof Clickable) {
-                    Clickable c = (Clickable) a;
-                    if (c.consumeClick())
-                        break;
+                    if (a instanceof Clickable) {
+                        Clickable c = (Clickable) a;
+                        if (c.consumeClick())
+                            break;
+                    }
                 }
-            }
 
-        mousePressed = false;
+            mousePressed = false;
 
-        state.finishFrame();
+            state.finishFrame();
 
-        view.repaint();
+            view.repaint();
+        }else{
+            new endGameScreen();
+        }
     }
 
     @Override

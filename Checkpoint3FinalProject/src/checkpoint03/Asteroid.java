@@ -17,6 +17,10 @@ public class Asteroid extends GameObject implements Targetable {
     @Override
     public void update(double timeElapsed) {
         pathPercentage += (1.00 / 10.0) * timeElapsed;
+        if (pathPercentage >= 1.0) {
+            state.adjustCityCount(-1);
+            this.hasExpired = true;
+        }
     }
 
     @Override

@@ -29,6 +29,8 @@ public class PhotonTorpedo extends GameObject {
         if (t != null) {
             Point tLoc = t.getFutureLocation(0);
             if (tLoc.distance(pos) < 20) {
+                state.adjustMoney(10);
+                state.adjustScore(100);
                 this.hasExpired = true;
                 ((GameObject) t).hasExpired = true;
             }

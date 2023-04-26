@@ -10,14 +10,25 @@ public class GameState {
     private List<GameObject> currentFrameObjects;
     private List<GameObject> nextFrameObjects;
     private int cityCount;
+
+
+
+    private int money = 100;
     private Point mouseLocation;
 
     private long lastFrameStartTime;
     private double elapsedTime;
+    private int score;
+    public int getScore() {
+        return score;
+    }
+    public void adjustScore(int amount) {
+        score += amount;
+    }
 
     public GameState() {
         currentFrameObjects = new ArrayList<GameObject>();
-        cityCount = 20;
+        cityCount = 500;
 
         lastFrameStartTime = System.currentTimeMillis();
         elapsedTime = 0;
@@ -71,6 +82,22 @@ public class GameState {
 
         currentFrameObjects = nextFrameObjects;
         nextFrameObjects = null;  // This makes it clear there is only a current list now.
+    }
+
+    /**
+     * Returns the amount of money the player has.
+     * @return the amount of money the player has.
+     */
+    public int getMoney() {
+        return money;
+    }
+
+    /**
+     * Adjusts the amount of money the player has by the given amount.
+     * @param money the amount to adjust the player's money by.
+     */
+    public void adjustMoney(int money) {
+        this.money += money;
     }
 
     /**

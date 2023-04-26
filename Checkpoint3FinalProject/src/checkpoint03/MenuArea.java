@@ -32,7 +32,9 @@ public class MenuArea extends GameObject {
         g.setColor(Color.BLACK);
         g.setFont(new Font("Arial", Font.BOLD, 24));
         g.drawString("Space Defence", 630, 50);
-        g.drawString("Points: " + state.getCityCount(), 630, 100);
+        g.drawString("Points: " + state.getScore(), 630, 100);
+        g.drawString("Money: " + state.getMoney(), 630, 150);
+        g.drawString("Cities: " + state.getCityCount(), 630, 200);
     }
 
     @Override

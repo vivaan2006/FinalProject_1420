@@ -19,7 +19,6 @@ public class View extends JPanel {
 
         JFrame frame = new JFrame("");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
         // Set the size of this panel.
         Dimension d = new Dimension(800, 600);
         this.setMinimumSize(d);
