@@ -124,7 +124,7 @@ public class Control implements Runnable, ActionListener, MouseListener, MouseMo
     public void actionPerformed(ActionEvent e) {
         // Main update loop
 
-        if(state.getCityCount() != 0){
+        if(state.getCityCount() > 0){
             state.startFrame();
 
             for (Animatable a : state.getCurrentObjects())
@@ -148,7 +148,8 @@ public class Control implements Runnable, ActionListener, MouseListener, MouseMo
 
             view.repaint();
         }else{
-            new endGameScreen();
+//            state.addGameObject(new endGameScreen(this, state));
+//            view.repaint();
         }
     }
 

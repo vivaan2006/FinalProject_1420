@@ -28,7 +28,7 @@ public class GameState {
 
     public GameState() {
         currentFrameObjects = new ArrayList<GameObject>();
-        cityCount = 500;
+        cityCount = 1;
 
         lastFrameStartTime = System.currentTimeMillis();
         elapsedTime = 0;
